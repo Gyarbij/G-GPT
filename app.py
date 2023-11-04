@@ -401,8 +401,8 @@ def conversation_without_data(request_body):
 
     for message in request_messages:
         messages.append({
-            "role": message["role"] ,
-            "content": message["content"]
+            "role": message.get("role"),
+            "content": message.get("content")
         })
 
     response = openai.ChatCompletion.create(
